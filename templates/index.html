@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <script>
+        $(function(){
+            window.setInterval(function(){
+                loadNewData()
+                }, 5000)
+        
+        function loadNewData(){
+            $.ajax({
+                url:"/imgandtitle",
+                type:"POST",
+                dataType:"json",
+                success: function(data){
+                    //data here is the new json diction, so we use dot notation to index the values that we want
+                    $(imgurl).attr("src", data.url)
+                    $(title).replaceWith(data.title)
+                    $(hp).replaceWith(data.hp)
+                    $(atk).replaceWith(data.atk)
+                    $(def).replaceWith(data.def)
+                    $(spatk).replaceWith(data.spatk)
+                    $(spdef).replaceWith(data.spdef)
+                    $(spd).replaceWith(data.spd)
+                }
+            });
+        }
+    });
+    </script>
+    <h2 id=title>{{title}}</h2>
+    <img id=imgurl src={{url}}>
+    <h2>Stats:</h2>
+    <h2 id=hp>HP: {{hp}}</h2>
+    <h2 id=atk>Attack: {{atk}}</h2>
+    <h2 id=def>Defense: {{def}}</h2>
+    <h2 id=spatk>Special Attack: {{spatk}}</h2>
+    <h2 id=spdef>Special Defense: {{spdef}}</h2>
+    <h2 id=spd>Speed: {{spd}}</h2>
+
+</body>
+</html>
