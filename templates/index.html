@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Home</title>
 </head>
@@ -39,15 +39,20 @@
     }
     </script>
     <input type="button" value="Snap Picture!" onclick="buttonClick"/>
-    <h2 id=title>{{title}}</h2>
-    <img id=imgurl src={{url}}>
-    <h2>Stats:</h2>
-    <h2 id=hp>HP: {{hp}}</h2>
-    <h2 id=atk>Attack: {{atk}}</h2>
-    <h2 id=def>Defense: {{def}}</h2>
-    <h2 id=spatk>Special Attack: {{spatk}}</h2>
-    <h2 id=spdef>Special Defense: {{spdef}}</h2>
-    <h2 id=spd>Speed: {{spd}}</h2>
-
+    <div style="width:100%">
+        <div style="width:50%;float: left; background: cornflowerblue;">
+            <h2 id=title>{{title}}</h2>
+            <img id=imgurl src={{url}}>
+        </div>
+        <div style="margin-left: 50%; background: firebrick;">
+            <h2>Stats:</h2>
+            <h2 id=hp>HP: {{hp}}</h2>
+            <h2 id=atk>Attack: {{atk}}</h2>
+            <h2 id=def>Defense: {{def}}</h2>
+            <h2 id=spatk>Special Attack: {{spatk}}</h2>
+            <h2 id=spdef>Special Defense: {{spdef}}</h2>
+            <h2 id=spd>Speed: {{spd}}</h2>
+        </div>
+    </div>
 </body>
 </html>

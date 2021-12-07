@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request, redirect
 import requests
 import random
 from random import randint
+from picamera import PiCamera
 
 app = Flask(__name__)
 
@@ -26,16 +27,10 @@ fairy = [35, 36, 39, 40, 122]
 poison = [1, 2, 3, 13, 14, 15, 23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 43, 44, 45, 48, 49, 69, 70, 71, 72, 73, 88, 89, 109, 110]
 
 pokeTypeArray = [normal, fire, water, grass, electric, flying, ice, ground, rock, fighting, ghost, bug, steel, psychic, dark, dragon, fairy, poison]
+#set up the camera
+#camera = PiCamera()
 
 #This array will change based on the color that is picked from the camera, when I get that
-# pokeType = random.choice(pokeTypeArray)
-# print(pokeType)
-# #pick pokemon from array
-# pokeNumber = random.choice(pokeType)
-# print(pokeNumber)
-
-# pokeResults = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokeNumber}")
-# print(type(pokeResults.json()['sprites']['other']['official-artwork']['front_default']))
 
 #since we are just returning a jsonified dictionary and not a usable html page, we don't need to make an imgandtitle html file
 @app.route("/imgandtitle", methods=['GET', 'POST'])
